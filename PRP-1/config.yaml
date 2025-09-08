@@ -1,0 +1,33 @@
+defaults:
+  - override hydra/job_logging: custom
+
+path_to_spinodal_resources: '\Path\to\MOBO\MOBO_standalone\spinodal_resources\'
+path_to_MOBO_folder: '\Path\to\MOBO\'
+path_to_GIBBON: '\Path\to\Gibbon'
+initial_data_filename: 'selected_data_combined' # doesn't need .csv extension
+apply_transform: True
+input_columns:
+  - 'Ro'
+  - 'Theta_1'
+  - 'Theta_2'
+  - 'Theta_3'
+output_columns:
+  - 'EA'
+  - 'Peak_Force'
+  - 'EA_Mode'
+batch_size: 1
+n_iterations: 200
+kernel: 
+  'RBF'
+  #'Matern'
+MOBO_type: 
+  #'random_sobol_sampling'
+  #'qEHVI'
+  #'qNEHVI'
+  #'weighted_sum' # with qNEI
+  'scalarise_chebyshev' # with qNEI
+  #'single_obj_optimise' # with qNEI
+hpc:
+  jobid: 1
+
+sge_jobid: '1'
